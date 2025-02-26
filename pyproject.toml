@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "github_search"
+version = "0.0.1"
+authors = [
+    {name = "Rashmi", email = "rashmi.kare@gmail.com"},
+]
+description = "Simple Github search"
+requires-python = ">=3.8"
+dependencies = [
+    "fastapi[standard]==0.115.8",
+    "uvicorn[standard]==0.29.0",
+    "gunicorn==22.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "ruff",
+    "coverage",
+    "pytest-cov",
+    "pre-commit"
+]
+
+[tool.setuptools]
+packages = ["src"]
+
+[tool.black]
+line-length = 120
+target-version = ["py311"]
+src = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+select = ["E", "F", "I", "UP"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --cov=src"
+testpaths = [
+    "src/api/",
+    "src/gunicorn_test.py"
+]
+pythonpath = ["src"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 100
