@@ -36,7 +36,7 @@ def search_github_repositories(search_keywords: str):
         "q": search_keywords,
         "sort": "stars",
         "order": "desc",
-        "per_page": 20,
+        "per_page": 10,
     }
 
     response = requests.get("https://api.github.com/search/repositories", headers=headers, params=params)
