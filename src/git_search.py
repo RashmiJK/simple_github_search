@@ -18,17 +18,21 @@ def load_envs():
         return None
 
     dotenv_path = find_dotenv_file()
-    if dotenv_path:
-        load_dotenv(dotenv_path)
-    else:
-        raise FileNotFoundError("No .env file found in the workspace")
+    return load_dotenv(dotenv_path)
 
 
 def search_github_repositories(search_keywords: str):
+    # Try loading from .env first
     load_envs()
 
+    # Get token from environment variable (works for both .env and Azure App Service settings)
+    token = os.getenv("GITHUB_TOKEN")
+
+    if not token:
+        raise ValueError("GitHub token not found in environment variables")
+
     headers = {
-        "Authrization": f"token {os.getenv('GITHUB_TOKEN')}",
+        "Authorization": f"token {token}",
         "Accept": "application/vnd.github.v3+json",
     }
 
