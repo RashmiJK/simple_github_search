@@ -6,7 +6,7 @@ on:
             - wip
 
 jobs:
-    buildimage:
+    buildanddeploy:
         runs-on: ubuntu-latest
         steps:
         - name: 'Checkout Github Action'
@@ -26,6 +26,29 @@ jobs:
         - run: |
             docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/simple-github-search:${{ github.sha }}
             docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/simple-github-search:${{ github.sha }}
+
+        - name: Set Web App ACR authentication
+          uses: Azure/appservice-settings@v1
+          with:
+            app-name: 'gaappwebapp'
+            app-settings-json: |
+              [
+                {
+                    "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+                    "value": "${{ secrets.REGISTRY_PASSWORD }}",
+                    "slotSetting": false
+                },
+                {
+                    "name": "DOCKER_REGISTRY_SERVER_URL",
+                    "value": "${{ secrets.REGISTRY_LOGIN_SERVER }}",
+                    "slotSetting": false
+                },
+                {
+                    "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+                    "value": "${{ secrets.REGISTRY_USERNAME  }}",
+                    "slotSetting": false
+                }
+              ]
 
         - name: 'Deploy to Azure App Sevices'
           uses: 'azure/webapps-deploy@v2'
