@@ -9,3 +9,5 @@ Simple Github Search app using FastAPI
 3. fastapi dev src/app.py
 
 ## Execute
+
+## Deploy
