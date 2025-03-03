@@ -11,3 +11,5 @@ Simple Github Search app using FastAPI
 ## Execute
 
 ## Deploy
+### Deploy through Azure UI
+### Continuous deployment using Github Actions
