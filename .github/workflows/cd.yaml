@@ -47,6 +47,11 @@ jobs:
                     "name": "DOCKER_REGISTRY_SERVER_USERNAME",
                     "value": "${{ secrets.REGISTRY_USERNAME  }}",
                     "slotSetting": false
+                },
+                 {
+                    "name": "GITHUB_TOKEN",
+                    "value": "${{ secrets.G_API_TOKEN }}",
+                    "slotSetting": false
                 }
               ]
 
