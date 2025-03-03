@@ -1,5 +1,8 @@
 FROM python:3.12
 
+LABEL maintainer="rashmi.kare@gmail.com"
+LABEL description="Simple Github Search Application"
+
 WORKDIR /code
 
 # Copy the necessary files
@@ -7,8 +10,8 @@ COPY pyproject.toml .
 COPY src/ src/
 
 # Install dependencies in editable mode
-RUN python -m pip install --upgrade pip
-RUN python -m pip install -e .
+RUN python -m pip install --no-cache-dir --upgrade pip && \
+    python -m pip install --no-cache-dir -e .
 
 EXPOSE 8000
 
