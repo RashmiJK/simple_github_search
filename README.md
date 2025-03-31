@@ -2,17 +2,17 @@
 In this session, we'll learn about Azure Container Registry and Azure App Service followed by deploying a simple app developed using FastAPI via the Azure Portal, and then explore deployment using GitHub Actions as a demo.
 
 ## Pre-requisites
-+ Containers
++ Knowledge of containerization concepts and technologies, such as Docker
 + Some ability of any programming language
-+ Azure Command line
++ Familiarity with Azure portal or Azure CLI for managing Azure resources.
 + Some basic understanding of Continuous Deployment (to understand what is being achieved through GitHub Actions)
 
 ## Let's understand the basics
-1. [Basics of containers](presentation/1-basics_of_containers.md)
-2. [What is Azure Container Registry](presentation/2-basics_of_ACR.md)
-3. [What is Azure App Service](presentation/3-basics_of_AP.md)
-4. [Basics of Github Actions](presentation/4-basics_actions.md)
-5. Demo
+1. [Basics of containers](presentation/1-containers.md)
+2. Undertanding of git
+3. [What is Azure Container Registry](presentation/2-ACR.md)
+4. [What is Azure App Service](presentation/3-AAS.md)
+5. [Basics of Github Actions](presentation/4-actions.md)
 
 # Setting Up Your Workspace for This Repository
 This is a simple web application developed using FastAPI to search for GitHub projects using keywords. It is designed for use in a technical demo session. The repository includes a `devcontainer.json` file to assist the Dev Container extension in quickly setting up the development environment. Refer to the [Developing inside a container](https://code.visualstudio.com/docs/devcontainers/containers) documentation to learn more. The web application is also dockerized to facilitate easy deployment in the cloud. Code is linted with [ruff](https://github.com/astral-sh/ruff) and formatted with [black](https://black.readthedocs.io/en/stable/). Project configurations are set up using [pyproject.toml](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html).
@@ -28,8 +28,7 @@ This is a simple web application developed using FastAPI to search for GitHub pr
     python -m pip install -e .
     ```
     <br>
-
-    c. Install the pre-commit hooks. Refer .pre-commit-config for better undertsanding on this.
+    c. Install the pre-commit hooks. Refer .pre-commit-config file and it's [documentation](https://pre-commit.com/#intro) for better undertsanding on this.
     ```shell
     pre-commit install
     ```
@@ -40,6 +39,9 @@ This is a simple web application developed using FastAPI to search for GitHub pr
     Open 'http://127.0.0.1:8000' in the browser tab and see the web app responding. This app requires github token to be supplied within in the .env file locally.
     Eg: 'GITHUB_TOKEN=<your token>'
 
-### Deploy through Azure UI
+# Deploy through Azure UI
+1. Containerize your web app using 'docker build' command
+2. Push the conatiner to Azure Container registry
+3. Create an instance of Azure App Services and deploy your app
 
 ### Setup Continuous deployment using Github Actions

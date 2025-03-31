@@ -1,0 +1,79 @@
+# Azure Container Registry (ACR)
+
+Azure Container Registry (ACR) is a managed, private Docker registry service based on the open-source Docker Registry 2.0. It allows you to build, store, and manage container images and artifacts in a private registry for all types of container deployments.
+
+## Key Features
+
+- **Managed Service**: ACR is a fully managed service that provides a secure and scalable environment for storing and managing container images.
+- **Integration**: Seamlessly integrates with Azure Kubernetes Service (AKS), Azure DevOps, and other Azure services.
+- **Geo-Replication**: Supports geo-replication to replicate your container images across multiple regions for high availability and disaster recovery.
+- **Security**: Provides advanced security features such as Azure Active Directory (AAD) integration, content trust, and image scanning.
+- **Build Capabilities**: Supports automated image builds and base image updates using Azure Container Registry Tasks.
+
+## Pricing Tiers
+
+ACR offers three pricing tiers to meet different needs:
+- **Basic**: Suitable for development and testing environments.
+- **Standard**: Ideal for production workloads with moderate traffic.
+- **Premium**: Designed for high-traffic production workloads with advanced features like geo-replication.
+
+## Getting Started
+
+To get started with ACR, follow these steps:
+1. **Create a Registry**: Use the Azure portal, Azure CLI, or ARM templates to create a new container registry.
+2. **Push Images**: Use Docker commands to push your container images to the registry.
+3. **Pull Images**: Use Docker commands to pull your container images from the registry.
+4. **Integrate with AKS**: Configure your AKS cluster to use ACR for pulling container images.
+
+## Additional Resources
+
+- [Azure Container Registry Documentation](https://learn.microsoft.com/en-us/azure/container-registry/)
+- [Quickstart: Create a private container registry using the Azure portal](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)
+- [Azure Container Registry Tasks](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview)
+
+## Azure container Registry for deployment
+
+### What is deployment?
+Deployment here refers to the process of making your application or service available on the cloud infrastructure so that it is accessible to everyone. It involves provisioning the necessary Azure resources, such as virtual machines, App Services, or container instances, container registries and transferring your application's code, configurations, and dependencies to those resources.
+
+### ACR
+- ACR is a managed service based on the open-source Docker Registry 2.0 which is used to store and manage container images and related artifacts securely. Authentication, roles and permissions are all built into it. It allows various features like Tasks to fully automate your build and deployment process.
+
+- Have a read and hands-on exercise for ACR by accessing the below links
+https://learn.microsoft.com/en-gb/training/modules/configure-azure-container-registry-container-app-deployments/
+
+- Managed service refers to a cloud offering where Microsoft handles the operational aspects of the service for you like provisioning, maintenance, scaling, updates, and security patches.
+
+- Once you store your image in ACR, it can be pulled to various deployment targets like Azure container apps, Azure container Instance, App service etc. In this exercise, we will see the image of the sample app deployed into Azure App services.
+
+You log in to a registry using the Azure CLI
+You control access to a container registry using an Azure identity.
+Azure container registries can include both Windows and Linux images.
+ACR Tasks can be used to offload docker build operations to Azure, but is not available on free tier.
+
+[Create a resource]
+(presentation/images/acr.png)
+(presentation/images/create_cr.png)
+Some of the features like private endpoints are available only for the Premium pricing plan. For this exercise, free tier is sufficient.
+(presentation/images/networking_cr.png)
+(presentation/images/encryption_cr.png)
+(presentation/images/review_cr.png)
+
+- [Install azure CLI] (https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+- Login to Azure using ```shell az login```
+- Login to registry using the below command
+```shell
+az acr login --name simpleappcr
+```
+- Build the image in the cloned repository using the below command. On mac, buildx is used to generate amd64 compatible image. Make sure you start the Docker Desktop in your laptop.
+```shell docker buildx build --platform linux/amd64 -t <your_image_name>:<tag> .```
+Eg:
+```shell docker buildx build --platform linux/amd64 -t simpleappcr.azurecr.io/simple-github-search:latest .```
+simpleappcr.azurecr.io is the Login server when you created your container registry instance in Azure.
+
+- Push the image using the below command
+``` shell docker push simpleappcr.azurecr.io/simple-github-search:latest```
+simpleappcr.azurecr.io identifies where to push the image
+
+- Once the image is successfully pushed to registry, you can verify that in the UI as below.
+(presentation/images/image_in_reg.png)
