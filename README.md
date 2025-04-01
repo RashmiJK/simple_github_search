@@ -2,18 +2,12 @@
 In this session, we'll learn about Azure Container Registry and Azure App Service followed by deploying a simple app developed using FastAPI via the Azure Portal, and then explore deployment using GitHub Actions as a demo.
 
 ## Pre-requisites
-+ Knowledge of containerization concepts and technologies, such as Docker
++ Knowledge of [containerization]((presentation/1-containers.md)) concepts and technologies, such as Docker
 + Some ability of any programming language
 + Familiarity with Azure portal or Azure CLI for managing Azure resources.
 + Some basic understanding of Continuous Deployment (to understand what is being achieved through GitHub Actions)
 
-## Let's understand the basics
-1. [Basics of containers](presentation/1-containers.md)
-2. [What is Azure Container Registry](presentation/2-ACR.md)
-3. [What is Azure App Service](presentation/3-AAS.md)
-4. [Basics of Github Actions](presentation/4-actions.md)
-
-# Setting Up Your Workspace for This Repository
+## Setting Up Your Workspace for This Repository
 This is a simple web application developed using FastAPI to search for GitHub projects using keywords. It is designed for use in a technical demo session. The repository includes a `devcontainer.json` file to assist the Dev Container extension in quickly setting up the development environment. Refer to the [Developing inside a container](https://code.visualstudio.com/docs/devcontainers/containers) documentation to learn more. The web application is also dockerized to facilitate easy deployment in the cloud. Code is linted with [ruff](https://github.com/astral-sh/ruff) and formatted with [black](https://black.readthedocs.io/en/stable/). Project configurations are set up using [pyproject.toml](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html).
 
 1. The developemnt environment will be automatically setup for you when you open the project in VS Code with [DevContainer extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
@@ -53,10 +47,22 @@ This is a simple web application developed using FastAPI to search for GitHub pr
     ```
     Open 'http://127.0.0.1:8000' in the browser tab and see the web app responding.
 
-# Deploy through Azure UI
+## Understanding the Basics of Azure Services Used in This Session
+
+In this session, we will utilize the following Azure services:
+
+1. [**Azure Container Registry (ACR)**](presentation/2-ACR.md): ACR is a managed, private Docker registry service provided by Azure. It allows you to store and manage container images securely and efficiently. These images can then be deployed to various Azure services, such as Azure Kubernetes Service (AKS) or Azure App Service.
+
+2. [**Azure App Service**](presentation/3-AAS.md): Azure App Service is a fully managed platform for building, deploying, and scaling web apps. It supports multiple programming languages and frameworks, including Python, .NET, Java, and more. In this session, we will use Azure App Service to host our containerized FastAPI application.
+
+3. [**GitHub Actions**](presentation/4-actions.md): GitHub Actions is a powerful CI/CD tool that enables automation of workflows directly from your GitHub repository. We will use GitHub Actions to automate the deployment of our application to Azure, ensuring a streamlined and repeatable process.
+
+These services together provide a robust and scalable solution for deploying containerized applications to the cloud.
+
+## Deploy through Azure UI
 Now that you have verified the application functions as expected, it's time to deploy it to the cloud, making it accessible to everyone.
+
 1. Containerize your web app using 'docker build' command
 2. Push the conatiner to Azure Container registry
 3. Create an instance of Azure App Services and deploy your app
-
-### Setup Continuous deployment using Github Actions
+4. Setup Continuous deployment using Github Actions
