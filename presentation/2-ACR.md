@@ -44,8 +44,9 @@ Some of the features like private endpoints are available only for the Premium p
 ![](images/2-encryption_cr.png)
 
 ![](images/2-review_cr.png)
+![](images/2-repositories.png)
 
-[Install azure CLI if you have not already done so] (https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+**[Install azure CLI if you have not already done so] (https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)**
 
 Let's switch to using zure cli to push the image to ACR.
 
