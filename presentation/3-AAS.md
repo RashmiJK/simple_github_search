@@ -40,6 +40,23 @@ There are several ways to deploy your app:
 
 In this demo, we'll use the container approach. We'll build a Linux/amd64 compatible image, push it to Azure Container Registry, and deploy that image into Azure App Services. The actions are also written for the same.
 
+**Create an AAS resource in Azure portal**
+![](images/3-aas.png)
+
+![](images/3-aas_cr.png)
+
+![](images/3-aas_container_tab.png)
+
+![](images/3-admin_user.png)
+
+![](images/3-env_github_token.png)
+
+![](images/3-webapp_access_link)
+
+![](images/3-admin_user.png)
+
+![](images/3-app_in_action.png)
+
 ## Additional Resources
 
 - [Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/)
