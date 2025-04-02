@@ -62,7 +62,10 @@ These services together provide a robust and scalable solution for deploying con
 
 ## What We Learned So Far
 
-In this session, we explored the foundational steps required to deploy a containerized web application to the cloud using Azure services. Here's a summary of what we covered:
+In this session, we explored the foundational steps required to deploy a containerized web application to the cloud using Azure services.
+
+![](presentation/images/final_app_running_in_cloud.png)
+Here's a summary of what we covered:
 
 1. **Containerization**: We learned how to containerize a FastAPI web application using Docker, enabling consistent and portable deployments.
 
