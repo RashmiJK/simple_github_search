@@ -1,9 +1,12 @@
 name: Simple Github Search Application continuous deployment
 
 on:
-    push:
-        branches:
-            - wip
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
 
 jobs:
     buildanddeploy:

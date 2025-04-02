@@ -61,3 +61,5 @@ In this demo, we'll use the container approach. We'll build a Linux/amd64 compat
 
 - [Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/)
 - [Deploy and run a containerized web app with Azure App Service](https://learn.microsoft.com/en-gb/training/modules/deploy-run-container-app-service/)
+- [Deploy a Python web app to Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cazure-cli-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli)
+- [Tech community blog](https://techcommunity.microsoft.com/blog/educatordeveloperblog/host-and-deploy-images-on-azure-container-registries-acr-via-app-service---a-ste/4148105?utm_source=chatgpt.com)

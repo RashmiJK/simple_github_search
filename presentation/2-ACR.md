@@ -24,6 +24,8 @@ To get started with ACR, follow these steps:
 - [Azure Container Registry Documentation](https://learn.microsoft.com/en-us/azure/container-registry/)
 - [Quickstart: Create a private container registry using the Azure portal](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)
 - [Azure Container Registry Tasks](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview)
+- [Admin account](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account)
+- [Authenticate with an Azure container registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli)
 
 ## Azure container Registry for deployment
 
@@ -48,25 +50,23 @@ Some of the features like private endpoints are available only for the Premium p
 
 **[Install azure CLI if you have not already done so] (https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)**
 
-Let's switch to using zure cli to push the image to ACR.
+Let's switch to using azure cli to push the image to ACR.
 
-- Log in to Azure using
+1. Log in to Azure using
 ```shell
 az login
 ```
 
-- Log in to a container registry using
+2. Log in to a container registry using
 ```shell
 az acr login --name <ACR name e.g simpleappcr>
 ```
 
-- You control access to a container registry using an Azure identity.
+You control access to a container registry using an Azure identity.
+Azure container registries can include both Windows and Linux images.
+ACR Tasks can be used to offload docker build operations to Azure, but is not available on free tier.
 
-- Azure container registries can include both Windows and Linux images.
-
-- ACR Tasks can be used to offload docker build operations to Azure, but is not available on free tier.
-
-- Build the image in the cloned repository using the below command.
+3. Build the image in the cloned repository using the below command.
 On mac, buildx is used to generate amd64 compatible image.
 Make sure you have started the Docker Desktop in your laptop before building the image.
 ```shell
@@ -79,9 +79,17 @@ docker buildx build --platform linux/amd64 -t simpleappcr.azurecr.io/simple-gith
 ```
 *simpleappcr.azurecr.io* is the Login server when you created your container registry instance in Azure.
 
-- Push the image using the below command
+4. Push the image using the below command
 ``` shell docker push simpleappcr.azurecr.io/simple-github-search:latest```
 simpleappcr.azurecr.io identifies where to push the image
 
-- Once the image is successfully pushed to registry, you can verify it in the UI.
+Once the image is successfully pushed to registry, you can verify it in the UI.
 ![](images/2-image_in_reg.png)
+
+5. Test the image by running the locally built version or pulling it directly from the Azure Container Registry.
+
+```shell
+export GITHUB_TOKEN=<your GITHUB token>
+
+docker run -it -e GITHUB_TOKEN -p 8000:8000 --name simple_github_search simple_github_search:latest
+```

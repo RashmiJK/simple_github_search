@@ -4,8 +4,9 @@ In this session, we'll learn about Azure Container Registry and Azure App Servic
 ## Pre-requisites
 + Knowledge of [containerization]((presentation/1-containers.md)) concepts and technologies, such as Docker
 + Some ability of any programming language
-+ Familiarity with Azure portal or Azure CLI for managing Azure resources.
++ Familiarity with the Azure portal, an understanding of resource groups, and experience using the Azure CLI to manage Azure resources.
 + Some basic understanding of Continuous Deployment (to understand what is being achieved through GitHub Actions)
++ GitHub account - Create an account on https://github.com if you don't already have one.
 
 ## Setting Up Your Workspace for This Repository
 This is a simple web application developed using FastAPI to search for GitHub projects using keywords. It is designed for use in a technical demo session. The repository includes a `devcontainer.json` file to assist the Dev Container extension in quickly setting up the development environment. Refer to the [Developing inside a container](https://code.visualstudio.com/docs/devcontainers/containers) documentation to learn more. The web application is also dockerized to facilitate easy deployment in the cloud. Code is linted with [ruff](https://github.com/astral-sh/ruff) and formatted with [black](https://black.readthedocs.io/en/stable/). Project configurations are set up using [pyproject.toml](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html).
