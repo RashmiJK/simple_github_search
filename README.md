@@ -4,8 +4,9 @@ In this session, we'll learn about Azure Container Registry and Azure App Servic
 ## Pre-requisites
 + Knowledge of [containerization]((presentation/1-containers.md)) concepts and technologies, such as Docker
 + Some ability of any programming language
-+ Familiarity with Azure portal or Azure CLI for managing Azure resources.
++ Familiarity with the Azure portal, an understanding of resource groups, and experience using the Azure CLI to manage Azure resources.
 + Some basic understanding of Continuous Deployment (to understand what is being achieved through GitHub Actions)
++ GitHub account - Create an account on https://github.com if you don't already have one.
 
 ## Setting Up Your Workspace for This Repository
 This is a simple web application developed using FastAPI to search for GitHub projects using keywords. It is designed for use in a technical demo session. The repository includes a `devcontainer.json` file to assist the Dev Container extension in quickly setting up the development environment. Refer to the [Developing inside a container](https://code.visualstudio.com/docs/devcontainers/containers) documentation to learn more. The web application is also dockerized to facilitate easy deployment in the cloud. Code is linted with [ruff](https://github.com/astral-sh/ruff) and formatted with [black](https://black.readthedocs.io/en/stable/). Project configurations are set up using [pyproject.toml](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html).
@@ -49,7 +50,7 @@ This is a simple web application developed using FastAPI to search for GitHub pr
 
 ## Understanding the Basics of Azure Services Used in This Session
 
-In this session, we will utilize the following Azure services:
+In this session, we will utilize the following Azure services to deploy this app to the cloud:
 
 1. [**Azure Container Registry (ACR)**](presentation/2-ACR.md): ACR is a managed, private Docker registry service provided by Azure. It allows you to store and manage container images securely and efficiently. These images can then be deployed to various Azure services, such as Azure Kubernetes Service (AKS) or Azure App Service.
 
@@ -59,10 +60,16 @@ In this session, we will utilize the following Azure services:
 
 These services together provide a robust and scalable solution for deploying containerized applications to the cloud.
 
-## Deploy through Azure UI
-Now that you have verified the application functions as expected, it's time to deploy it to the cloud, making it accessible to everyone.
+## What We Learned So Far
 
-1. Containerize your web app using 'docker build' command
-2. Push the conatiner to Azure Container registry
-3. Create an instance of Azure App Services and deploy your app
-4. Setup Continuous deployment using Github Actions
+In this session, we explored the foundational steps required to deploy a containerized web application to the cloud using Azure services. Here's a summary of what we covered:
+
+1. **Containerization**: We learned how to containerize a FastAPI web application using Docker, enabling consistent and portable deployments.
+
+2. **Azure Container Registry (ACR)**: We discussed how to push container images to ACR, a secure and managed Docker registry provided by Azure.
+
+3. **Azure App Service**: We explored how to create an instance of Azure App Service and deploy our containerized application, making it accessible to users.
+
+4. **Continuous Deployment with GitHub Actions**: We set up GitHub Actions to automate the deployment process, ensuring a streamlined and repeatable workflow.
+
+These steps provide a solid foundation for deploying and managing containerized applications in the cloud using Azure.

@@ -47,13 +47,12 @@ In this demo, we'll use the container approach. We'll build a Linux/amd64 compat
 
 ![](images/3-aas_container_tab.png)
 
-![](images/3-admin_user.png)
+Enabling admin user on container registry resource (as seen in the below screenshot) that you provisioned is an important step for App service to pull the image from container registry.
+![](images/2-admin_user.png)
 
 ![](images/3-env_github_token.png)
 
-![](images/3-webapp_access_link)
-
-![](images/3-admin_user.png)
+![](images/3-webapp_access_link.png)
 
 ![](images/3-app_in_action.png)
 
@@ -61,3 +60,5 @@ In this demo, we'll use the container approach. We'll build a Linux/amd64 compat
 
 - [Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/)
 - [Deploy and run a containerized web app with Azure App Service](https://learn.microsoft.com/en-gb/training/modules/deploy-run-container-app-service/)
+- [Deploy a Python web app to Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cazure-cli-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli)
+- [Tech community blog](https://techcommunity.microsoft.com/blog/educatordeveloperblog/host-and-deploy-images-on-azure-container-registries-acr-via-app-service---a-ste/4148105?utm_source=chatgpt.com)
