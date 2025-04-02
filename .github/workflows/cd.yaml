@@ -10,6 +10,7 @@ on:
 
 jobs:
     buildanddeploy:
+        if: ${{ false }}
         runs-on: ubuntu-latest
         steps:
         - name: 'Checkout Github Action'
