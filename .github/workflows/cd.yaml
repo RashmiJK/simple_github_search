@@ -27,13 +27,13 @@ jobs:
             username: ${{ secrets.REGISTRY_USERNAME }}
             password: ${{ secrets.REGISTRY_PASSWORD }}
         - run: |
-            docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/simple-github-search:${{ github.sha }}
-            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/simple-github-search:${{ github.sha }}
+            docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/sgsapp:${{ github.sha }}
+            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/sgsapp:${{ github.sha }}
 
         - name: Set Web App ACR authentication
           uses: Azure/appservice-settings@v1
           with:
-            app-name: 'gaappwebapp'
+            app-name: 'sgsaas'
             app-settings-json: |
               [
                 {
@@ -61,8 +61,8 @@ jobs:
         - name: 'Deploy to Azure App Sevices'
           uses: 'azure/webapps-deploy@v2'
           with:
-            app-name: 'gaappwebapp'
-            images: '${{ secrets.REGISTRY_LOGIN_SERVER }}/simple-github-search:${{ github.sha }}'
+            app-name: 'sgsaas'
+            images: '${{ secrets.REGISTRY_LOGIN_SERVER }}/sgsapp:${{ github.sha }}'
 
         - name: 'Azure logout'
           run: |

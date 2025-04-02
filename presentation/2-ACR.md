@@ -48,6 +48,9 @@ Some of the features like private endpoints are available only for the Premium p
 ![](images/2-review_cr.png)
 ![](images/2-repositories.png)
 
+Enable admin user to be able to use the registry name as user name and admin user access key as password to docker login to your container registry. With this, when you provision the App Service resource, it can pull the image from container registry.
+![](images/2-admin_user.png)
+
 **[Install azure CLI if you have not already done so] (https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)**
 
 Let's switch to using azure cli to push the image to ACR.
@@ -70,7 +73,7 @@ ACR Tasks can be used to offload docker build operations to Azure, but is not av
 On mac, buildx is used to generate amd64 compatible image.
 Make sure you have started the Docker Desktop in your laptop before building the image.
 ```shell
-docker buildx build --platform linux/amd64 -t <your_image_name>:<tag> .
+docker buildx build --platform linux/amd64 -t <your_ACR_login_server/your_image_name>:<tag> .
 ```
 
 Eg:
@@ -80,7 +83,9 @@ docker buildx build --platform linux/amd64 -t simpleappcr.azurecr.io/simple-gith
 *simpleappcr.azurecr.io* is the Login server when you created your container registry instance in Azure.
 
 4. Push the image using the below command
-``` shell docker push simpleappcr.azurecr.io/simple-github-search:latest```
+``` shell
+docker push simpleappcr.azurecr.io/simple-github-search:latest
+```
 simpleappcr.azurecr.io identifies where to push the image
 
 Once the image is successfully pushed to registry, you can verify it in the UI.

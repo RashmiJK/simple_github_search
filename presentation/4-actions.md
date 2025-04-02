@@ -32,14 +32,13 @@ Action
     ```shell
     az group show --name <resource-group-name> --query id --output tsv
 
-    e.g:
+    e.g: % az group show --name sgsrg --query id --output tsv
+        /subscriptions/xxxxxxxx-b644-455f-xxxx-3eb394xxxxxx/resourceGroups/sgsrg
     ```
 
     * Create a service principal using the below command with contributor role scoped to the resource group.
     ```shell
         az ad sp create-for-rbac --scope groupId --role Contributor --sdk-auth
-
-    e.g:
     ```
     Save the JSON output because this need to be saved as secret credential in repository settings. Also, take note of the clientId, which you need to update the service principal in the next section.
 

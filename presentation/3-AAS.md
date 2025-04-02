@@ -47,13 +47,12 @@ In this demo, we'll use the container approach. We'll build a Linux/amd64 compat
 
 ![](images/3-aas_container_tab.png)
 
-![](images/3-admin_user.png)
+Enabling admin user on container registry resource (as seen in the below screenshot) that you provisioned is an important step for App service to pull the image from container registry.
+![](images/2-admin_user.png)
 
 ![](images/3-env_github_token.png)
 
-![](images/3-webapp_access_link)
-
-![](images/3-admin_user.png)
+![](images/3-webapp_access_link.png)
 
 ![](images/3-app_in_action.png)
 
