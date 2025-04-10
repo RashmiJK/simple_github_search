@@ -1,9 +1,16 @@
 # Github Actions
 GitHub Actions is a suite of features in GitHub to automate your software development workflows right in your code repository and collaborate on pull requests and issues.
 
-Workflow
+### Workflow
+A workflow is a configurable automated process defined by a YAML file located in the .github/workflows directory of a repository. It comprises one or more jobs and is triggered by specific events, such as a push to the repository, the creation of a pull request, or on a set schedule. Each job within a workflow consists of multiple steps that execute tasks like running scripts or utilizing actions. Workflows enable automation of tasks throughout the software development lifecycle, including building, testing, and deploying code.
 
-Action
+### Action
+An action is a custom application for the GitHub Actions platform that performs a complex but frequently repeated task. Actions can be combined as steps within a job to create a workflow. They can be created by GitHub, third-party developers, or you can write your own to suit specific needs. Actions are reusable, shareable, and can be customized with inputs and outputs to integrate seamlessly into workflows.
+
+Workflows define the overall automation process and can encompass multiple jobs and actions. Actions are individual components that perform specific tasks within those workflows.​
+
+### Jobs
+In GitHub Actions, a job is a set of steps that execute on the same runner. Each job runs in its own virtual environment and can consist of multiple steps, which are individual tasks that execute commands or actions. By default, jobs run in parallel, but you can configure dependencies to control their execution order. ​
 
 [Github Docs](https://docs.github.com/en/actions)
 
