@@ -36,7 +36,7 @@ This is a simple web application developed using FastAPI to search for GitHub pr
     ```shell
     pre-commit install
     ```
-4. This application requires a GitHub personal access token to be specified in a `.env` file for local
+4. This application requires a [GitHub personal access](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic) token to be specified in a `.env` file for local
    development. Add the following line to your `.env` file, replacing `<your token>` with your actual token:
     ```plaintext
     GITHUB_TOKEN=<your token>
