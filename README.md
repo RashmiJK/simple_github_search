@@ -1,7 +1,8 @@
 # Deploying Containerized Web Apps Using Azure Container Registry and Azure App Service
 In this session, we'll learn about Azure Container Registry and Azure App Service followed by deploying a simple app developed using FastAPI via the Azure Portal, and then explore deployment using GitHub Actions as a demo.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AaGTBz1uqUM?start=2335" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch the video](presentation/images/my_demo.png)](https://www.youtube.com/embed/AaGTBz1uqUM?start=2335)
+
 
 ## Pre-requisites
 + Knowledge of [containerization]((presentation/1-containers.md)) concepts and technologies, such as Docker
