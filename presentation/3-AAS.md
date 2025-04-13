@@ -1,6 +1,6 @@
 # Web Hosting Options in Azure
 
-Azure App Service offers fully managed hosting for web applications, including websites and APIs. You can deploy these applications using either **code** or **containers**, making it an ideal choice for cloud-native web solutions. Explore the available [link](https://learn.microsoft.com/en-us/azure/app-service/deploy) to learn various deployment options for cloud-native apps in Azure.
+Azure App Service offers fully managed hosting for web applications, including websites and APIs. You can deploy these applications using either **code** or **containers**, making it an ideal choice for cloud-native web solutions. Explore the available [link](https://learn.microsoft.com/en-us/azure/app-service/) to learn various deployment options for cloud-native apps in Azure.
 
 Azure offers many ways to host your application code. Here is a flowchart that helps you choose the suitable Azure service for your requirements. You can compare their features at full scale in this read.
 

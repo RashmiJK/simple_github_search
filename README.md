@@ -28,7 +28,7 @@ This is a simple web application developed using FastAPI to search for GitHub pr
     b. [Setuptools](https://github.com/pypa/setuptools) allows you to install a package without copying any files to your interpreter directory (e.g. the site-packages directory). This allows you to modify your source code and have the changes take effect without you having to rebuild and reinstall.
     To do that, execute the below command (include the dot in the command; it means current directory)
     ```shell
-    python -m pip install -e .
+    python -m pip install -e .[dev]
     ```
     <br>
 
