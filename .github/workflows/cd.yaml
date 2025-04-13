@@ -28,13 +28,13 @@ jobs:
             username: ${{ secrets.REGISTRY_USERNAME }}
             password: ${{ secrets.REGISTRY_PASSWORD }}
         - run: |
-            docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/sgsapp:${{ github.sha }}
-            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/sgsapp:${{ github.sha }}
+            docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/bdsgsapp:${{ github.sha }}
+            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/bdsgsapp:${{ github.sha }}
 
         - name: Set Web App ACR authentication
           uses: Azure/appservice-settings@v1
           with:
-            app-name: 'sgsaas'
+            app-name: 'bdsgsas'
             app-settings-json: |
               [
                 {
@@ -62,8 +62,8 @@ jobs:
         - name: 'Deploy to Azure App Sevices'
           uses: 'azure/webapps-deploy@v2'
           with:
-            app-name: 'sgsaas'
-            images: '${{ secrets.REGISTRY_LOGIN_SERVER }}/sgsapp:${{ github.sha }}'
+            app-name: 'bdsgsas'
+            images: '${{ secrets.REGISTRY_LOGIN_SERVER }}/bdsgsapp:${{ github.sha }}'
 
         - name: 'Azure logout'
           run: |
